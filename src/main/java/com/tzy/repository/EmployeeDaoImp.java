@@ -41,7 +41,7 @@ public class EmployeeDaoImp implements EmployeeDao {
 
     @Override
     public List<Employee> getEmployee() {
-        String hql = "FROM Employee";
+        String hql = "FROM Employee as emp left join fetch emp.department";
         Session s = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
         List<Employee> res = new ArrayList<>();

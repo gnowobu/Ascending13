@@ -72,8 +72,8 @@ public class EmployeeDaoTest {
     @Test
     public void EmployeeDaoTest(){
 
-        Assert.assertEquals(employeeDao.getEmployee().get(0).getDepartment().getName(),"Sales");
-
+        //Assert.assertEquals(employeeDao.getEmployee().get(0).getDepartment().getName(),"Sales");
+        Assert.assertEquals(departmentDao.getDepartments().get(0).getEmployees().size(),2);
 
     }
 

@@ -19,7 +19,7 @@ public class DepartmentDaoTest {
         department.setName("test");
         department.setLocation("test");
         department.setDescription("test");
-        department.setId(4L);
+        //department.setId(7L);
         departmentDao.save(department);
     }
 
@@ -34,8 +34,9 @@ public class DepartmentDaoTest {
 
     @Test
     public void departmentDaoTest(){
+        Long id = departmentDao.getDepartments().get(0).getId();
+        Assert.assertEquals(departmentDao.getDepartmentEagerBy(id).getName(),"test");
 
-        Assert.assertEquals(departmentDao.getDepartments().get(1).getName(),"test");
 
     }
 }

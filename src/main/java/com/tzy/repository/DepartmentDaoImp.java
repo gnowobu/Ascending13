@@ -1,6 +1,7 @@
 package com.tzy.repository;
 
 import com.tzy.model.Department;
+import com.tzy.model.Employee;
 import com.tzy.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -19,7 +20,7 @@ public class DepartmentDaoImp implements DepartmentDao {
     @Override
     public List<Department> getDepartments() {
 
-        String hql = "FROM Department";
+        String hql = "FROM Department dep left join fetch dep.employees";
         Session s = HibernateUtil.getSessionFactory().openSession();
         List<Department> res = new ArrayList<>();
         Transaction transaction = null;
@@ -85,8 +86,42 @@ public class DepartmentDaoImp implements DepartmentDao {
 
     @Override
     public Department findByName(String name) {
-        String hql = "s";
-        return null;
+        String hql = "FROM Department where name =: Name";
+
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Department department =new Department();
+
+
+        Transaction transaction = null;
+        try {
+            transaction = s.beginTransaction();
+            Query<Department> query = s.createQuery(hql);
+            query.setParameter("Name",name);
+            department = query.list().get(0);
+            transaction.commit();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            logger.error("session exception, try again");
+        }
+
+        return department;
+    }
+
+    public Department getDepartmentEagerBy(Long id){
+//        select * from departments as dep left join employees as e on a.employee_id=dep.id where dep.id=:Id
+        String hql = "FROM Department d LEFT JOIN FETCH d.employees where d.id=:Id";
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            Query<Department> query = session.createQuery(hql);
+            query.setParameter("Id",id);
+            Department result = query.uniqueResult();
+            session.close();
+            return result;
+        }catch (HibernateException e){
+            logger.error("failure to retrieve data record",e);
+            session.close();
+            return null;
+        }
     }
 
 }

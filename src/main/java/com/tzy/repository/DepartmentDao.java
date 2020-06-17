@@ -13,4 +13,6 @@ public interface DepartmentDao {
     boolean delete(Department department);
 
     Department findByName(String name);
+
+    Department getDepartmentEagerBy(Long id);
 }

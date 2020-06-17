@@ -31,7 +31,7 @@ public class Employee {
     @Column(name = "hired_date")
     private LocalDate hired_date;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")//many-side, foreign key
     private Department department;
 
