@@ -4,7 +4,7 @@ import com.tzy.repository.DepartmentDao;
 import com.tzy.repository.DepartmentDaoImp;
 import com.tzy.repository.EmployeeDao;
 import com.tzy.repository.EmployeeDaoImp;
-import org.junit.After;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -72,7 +72,7 @@ public class EmployeeDaoTest {
     @Test
     public void EmployeeDaoTest(){
 
-        //Assert.assertEquals(employeeDao.getEmployee().get(0).getDepartment().getName(),"Sales");
+        Assert.assertEquals(employeeDao.getEmployee().get(0).getDepartment().getName(),"Sales");
         Assert.assertEquals(departmentDao.getDepartments().get(0).getEmployees().size(),2);
 
     }
