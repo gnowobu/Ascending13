@@ -35,25 +35,6 @@ public class Role {
     @Column(name = "allowed_delete")
     private boolean allowedDelete;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Role)) return false;
-        Role role = (Role) o;
-        return id == role.id &&
-                allowedRead == role.allowedRead &&
-                allowedCreate == role.allowedCreate &&
-                allowedUpdate == role.allowedUpdate &&
-                allowedDelete == role.allowedDelete &&
-                Objects.equals(name, role.name) &&
-                Objects.equals(allowedResource, role.allowedResource);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, allowedResource, allowedRead, allowedCreate, allowedUpdate, allowedDelete);
-    }
-
     public long getId() {
         return id;
     }
@@ -123,5 +104,23 @@ public class Role {
         this.users = users;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Role)) return false;
+        Role role = (Role) o;
+        return id == role.id &&
+                allowedRead == role.allowedRead &&
+                allowedCreate == role.allowedCreate &&
+                allowedUpdate == role.allowedUpdate &&
+                allowedDelete == role.allowedDelete &&
+                Objects.equals(name, role.name) &&
+                Objects.equals(allowedResource, role.allowedResource);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, allowedResource, allowedRead, allowedCreate, allowedUpdate, allowedDelete);
+    }
 
 }

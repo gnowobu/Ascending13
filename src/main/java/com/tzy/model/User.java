@@ -2,6 +2,8 @@ package com.tzy.model;
 
 
 import javax.persistence.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
@@ -108,8 +110,14 @@ public class User {
         return Objects.hash(id, name, password, secretKey, firstName, lastName);
     }
 
-        public void addRole(Role role){
+
+    public void addRole(Role role){
         this.roles.add(role);
         role.getUsers().add(this);
     }
+
+
+
+
+
 }

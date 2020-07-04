@@ -1,7 +1,6 @@
 package com.tzy.repository;
 
 import com.tzy.model.Department;
-import com.tzy.model.Employee;
 import com.tzy.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

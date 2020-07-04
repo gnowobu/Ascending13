@@ -12,7 +12,7 @@
     <database id="3" parent="1" name="course">
       <ObjectId>24660</ObjectId>
       <Owner>test</Owner>
-      <IntrospectionStateNumber>805</IntrospectionStateNumber>
+      <IntrospectionStateNumber>807</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|24661|24663|1
 sequence|table|24671|24673|1
@@ -79,7 +79,7 @@ sequence|table|24751|24753|1
       <Comment>standard public schema</Comment>
       <StateNumber>276</StateNumber>
       <Owner>test</Owner>
-      <IntrospectionStateNumber>806</IntrospectionStateNumber>
+      <IntrospectionStateNumber>808</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="18" parent="3" name="heap">

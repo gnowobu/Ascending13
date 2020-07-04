@@ -1,6 +1,5 @@
 package com.tzy.repository;
 
-import com.github.fluent.hibernate.H;
 import com.tzy.model.Employee;
 import com.tzy.util.HibernateUtil;
 import org.hibernate.HibernateException;
